@@ -79,27 +79,12 @@ ______
 
 while player > 0:
 
-    if player == 7:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {zero}\n{blanks}\n\n>')
-        guess = guess.lower
-    elif player == 6:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {first}\n{result}\n\n>')
-        guess = guess.lower
-    elif player == 5:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {second}\n{result}\n\n>')
-        guess = guess.lower
-    elif player == 4:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {third}\n{result}\n\n>')
-        guess = guess.lower
-    elif player == 3:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {fourth}\n{result}\n\n>')
-        guess = guess.lower
-    elif player == 2:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {fifth}\n\n\n{result}\n\n>')
-        guess = guess.lower
-    elif player == 1:
-        guess = input(f'the word is {wordl} letters long, you have {player} guesses left.' + f'\n\n {sixth}\n\n\n{result}\n\n>')
-        guess = guess.lower
+    if 1 <= player <= 7:
+        guess_prompt = f'the word is {wordl} letters long, you have {player} guesses left.'
+        if player > 1:
+            guess_prompt += f'\n\n {"".join([sixth, f"\n{result}\n", fifth, fourth, "", ""][1:player+1])}'
+        guess = input(guess_prompt).lower()
+
 
 
 
